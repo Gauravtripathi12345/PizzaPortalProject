@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PizzaPortalProject.Models.PizzaModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pizza World!!🍕</h2>
+
+
+<style>
+    .card {
+        margin: 50px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        height: 100px;
+        background-color: pink;
+        display: inline-block
+    }
+
+    .card-header {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="card">
+        <div class="card-header">
+            @Html.DisplayFor(modelItem => item.Type)
+        </div>
+        <div class="card-body">
+            <p>Price: @Html.DisplayFor(modelItem => item.Price)</p>
+            <p>@Html.ActionLink("Details", "SelectedItems", new { id = item.Id })</p>
+        </div>
+    </div>
+}
